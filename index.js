@@ -1,7 +1,8 @@
 const express = require('express');
 const port = 3000;
-const cluster = require('cluster');
-const totalCPUs = require('os').cpus().length;
+const cluster = require('node:cluster');
+const totalCPUs = require('node:os').cpus().length;
+const process = require('node:process');
 
 if (cluster.isMaster) {
   console.log(`Number of CPUs is ${totalCPUs}`);
